@@ -40,8 +40,8 @@
 	    <thead>
 	      <tr>
 	        <th>Request</th>
-	        <th>Created</th>
-	        <th>Last updated</th>
+	        <th>Created date (time)</th>
+	        <th>Last updated date (time)</th>
 	        <th>Action</th>
 	        <th>Stock Available</th>
 	        <th>Stock Requested</th>
@@ -51,8 +51,8 @@
 	    {% for post in all_post%}
 	      <tr>
 	        <td>Request {{post.id}}</td>
-	        <td>{{ post.created.strftime('%Y-%m-%d') }}</td>
-	        <td>{{ post.updated.strftime('%Y-%m-%d') }}</td>
+	        <td>{{ post.created.strftime('%Y-%m-%d  (%H:%M)') }}</td>
+	        <td>{{ post.updated.strftime('%Y-%m-%d  (%H:%M)')}}</td>
 	        <td><a href="/view_post/?key={{post.id}}">View</a> &nbsp; <button class="btn" type="button" onclick="window.location.href='/edit_post_page/?key={{post.id}}'">Process</button></td>
 	        {% for specs in all_specs %}
 	        	{% if specs.id == post.specs_post.id %}
