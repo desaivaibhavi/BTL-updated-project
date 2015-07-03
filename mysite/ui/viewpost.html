@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+ 
+	<title>View post</title>
+
+   
+
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/dropdown.js"></script>
+	<script src="bootstrap/js/jquery.min.js"></script>
+
+
+	
+  </head>
+
+  <body>
+
+   <style>
+		{% include "bootstrap/css/bootstrap.min.css" %}
+		{% include "bootstrap/css/bootstrap.css" %}
+		{% include "bootstrap/css/signin.css" %}
+		{% include "bootstrap/css/collapse.css" %}
+		
+	</style>
+
+	
+   
+	<div class="container">
+	  <h2><center>BTL : Updates</center></h2><br>
+
+
+
+	  <table class="table">
+	      <tr>
+	        <th>City</th>
+	        <td>
+	        	{% for city in post.city_post.all() %}
+		  			{{city.city_name}}
+	  			{% endfor %} 
+	  		</td>
+	      </tr>
+
+	      <tr>
+	        <th>Language</th>
+	        <td>
+	        	{% for lang in post.lang_post.all() %}
+					{{lang.lang_name}}
+	  			{% endfor %}
+	        </td>
+	      </tr>
+
+	      <tr>
+	        <th>Request Type</th>
+	        <td>{{post.rtype_post}} </td>
+	      </tr>
+
+	      
+	      <tr>
+	        <th>Email</th>
+	        <td>{{post.email_post}}</td>
+	      </tr>
+
+	      <tr>
+	        <th>Instruction</th>
+	        <td>{{post.instruct_post}} </td>
+	      </tr>
+
+	     
+
+
+	  </table>
+
+
+
+
+
+
+
+	</div>
+
+	
+
+
+
+
+  </body>
+</html>

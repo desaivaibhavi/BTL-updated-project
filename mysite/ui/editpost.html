@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+ 
+	<title>Edit Request</title>
+
+   
+
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/dropdown.js"></script>
+	<script src="bootstrap/js/jquery.min.js"></script>
+
+
+	
+  </head>
+
+  <body>
+
+   <style>
+		{% include "bootstrap/css/bootstrap.min.css" %}
+		{% include "bootstrap/css/bootstrap.css" %}
+		{% include "bootstrap/css/signin.css" %}
+		{% include "bootstrap/css/collapse.css" %}
+		
+	</style>
+
+	
+   
+	<div class="container">
+		<h2><center><u>Edit Request</u></center></h2><br>
+
+
+		<h3><center>Actions</center></h3><br>
+
+		<form action="/edit_post/?key={{post.id}}" method="post" enctype="multipart/form-data" class="form-request">
+
+		 <table class="table">
+	      <tr>
+	        <th>Add Comment</th>
+	        <td>
+	        	<label for="inputComment" class="sr-only">Add Comment</label>
+				<input type="text" id="inputComment" name="comment" class="form-control" required><br>
+	  		</td>
+	      </tr>
+	      <tr>
+	        <th>Status</th>
+	        <td>
+	        	<label for="inputStatus" class="sr-only">Status</label>
+				<input type="number" id="inputStatus" name="status" class="form-control" required><br>
+	  		</td>
+	      </tr>
+	      </table>
+
+	      		<center> <input type="submit" name="submit" value="SEND" class="btn"></center><br>
+
+	    </form>
+	
+
+	  <br>
+		<h3><center>Post Details</center></h3>
+
+	  <br>
+
+	
+	  <table class="table">
+	      <tr>
+	        <th>City</th>
+	        <td>
+	        	{% for city in post.city_post.all() %}
+		  			{{city.city_name}}
+	  			{% endfor %} 
+	  		</td>
+	      </tr>
+
+	      <tr>
+	        <th>Language</th>
+	        <td>
+	        	{% for lang in post.lang_post.all() %}
+					{{lang.lang_name}}
+	  			{% endfor %}
+	        </td>
+	      </tr>
+
+	      <tr>
+	        <th>Request Type</th>
+	        <td>{{post.rtype_post}} </td>
+	      </tr>
+
+	      <tr>
+	        <th>Quantity Ordered</th>
+	        <td>{{post.qty_post}} </td>
+	      </tr>
+
+	      <tr>
+	        <th>Email</th>
+	        <td>{{post.email_post}}</td>
+	      </tr>
+
+	      <tr>
+	        <th>Instruction</th>
+	        <td>{{post.instruct_post}} </td>
+	      </tr>
+
+	   
+
+	  </table>
+
+
+	  <br><br>
+
+
+
+
+
+	</div>
+
+	
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,32 @@
+.collapse{
+  display:block;
+}
+.collapse + input{
+  display:none;
+}
+.collapse + input + *{
+  display:none;
+}
+.collapse+ input:checked + *{
+  display:block;
+}
+
+#green {
+    display: none;
+    padding: 10px;
+    background-color: #6f6;
+}
+
+#red {
+    display: none;
+    padding: 10px;
+    background-color: #f44;
+}
+
+input[value="green"]:checked ~ #green {
+    display: block;
+}
+
+input[value="red"]:checked ~ #red {
+    display: block;
+}

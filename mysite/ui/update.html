@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+ 
+	<title>BTL Update</title>
+
+   
+
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/dropdown.js"></script>
+	<script src="bootstrap/js/jquery.min.js"></script>
+
+
+	
+  </head>
+
+  <body>
+
+   <style>
+		{% include "bootstrap/css/bootstrap.min.css" %}
+		{% include "bootstrap/css/bootstrap.css" %}
+		{% include "bootstrap/css/signin.css" %}
+		{% include "bootstrap/css/collapse.css" %}
+		
+	</style>
+
+	
+   
+	<div class="container">
+	  <h2><center>BTL : Updates</center></h2><br>
+
+	{%if all_post|length ==0 %}
+        <center>There are No Posts right now.</center>
+    {% else %}
+
+
+	  <table class="table">
+	    <thead>
+	      <tr>
+	        <th>Request</th>
+	        <th>Created</th>
+	        <th>Last updated</th>
+	        <th>Action</th>
+	        <th>Stock Available</th>
+	        <th>Stock Requested</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    {% for post in all_post%}
+	      <tr>
+	        <td>Request {{post.id}}</td>
+	        <td>{{ post.created.strftime('%Y-%m-%d') }}</td>
+	        <td>{{ post.updated.strftime('%Y-%m-%d') }}</td>
+	        <td><a href="/view_post/?key={{post.id}}">View</a> &nbsp; <button class="btn" type="button" onclick="window.location.href='/edit_post_page/?key={{post.id}}'">Process</button></td>
+	        {% for specs in all_specs %}
+	        	{% if specs.id == post.specs_post.id %}
+	        	<td>{{specs.specs_qty}}</td>
+	        	{% endif %}
+	        {% endfor %}
+	        <td>{{post.qty_post}}</td>
+	      </tr>
+	    {% endfor %}
+
+	    </tbody>
+	  </table>
+	 {% endif %}
+
+	</div>
+
+	
+
+
+
+
+  </body>
+</html>
