@@ -41,7 +41,7 @@
 		<label for="inputCity" class="sr-only">Select City to be shipped to</label><br>
 			<select multiple class="form-control" id="optCity" name="city" required>
 				{% for city in all_cities %}
-				<option>{{city.city_name}}</option>
+				<option value="{{city.city_name}}">{{city.city_name}}</option>
 				{% endfor %}
 			</select><br>   
 
@@ -54,7 +54,7 @@
 		<label for="inputRequest" class="sr-only">Request Type</label><br>
 		<select class="form-control" id="optRequest" name="rtype" required>
 			{% for rtype in all_rtype %}
-			<option>{{rtype.rtype_name}}</option>
+			<option value="{{rtype.rtype_name}}">{{rtype.rtype_name}}</option>
 			{% endfor %}
 			 
 		</select> <br>
@@ -63,7 +63,7 @@
 		<label for="inputLang" class="sr-only">Language</label><br>
 		<select class="form-control" id="optLanguage" name="lang" required>
 			{% for lang in all_lang %}
-			<option>{{lang.lang_name}}</option>
+			<option value="{{lang.lang_name}}">{{lang.lang_name}}</option>
 			{% endfor %}
 		</select> <br>
 		
@@ -77,13 +77,7 @@
 
 		Select the type, subtype and specification of BTL required
 		<br><br>
-	<!-- 	<label for="inputBTL" class="sr-only">Type of BTL</label><br>
-		<select class="form-control" id="optBTL" required>
-			{% for btl in all_BTL %}
-			<option value="{{btl.id}}">{{btl.BTL_name}}</option>
-			{% endfor %}
-		</select> <br>
-		<br><br> -->
+
 			
 	
 		<div style="border:1px solid black; padding:25px;">
@@ -96,18 +90,12 @@
 					<b>{{item.item_name}}</b> <br>
 						{% for specs in all_specs %}
 							{% if specs.specs_item.id == item.id %}
-								&nbsp;&nbsp;&nbsp;{{specs.specs_name}} &nbsp;&nbsp;
-								 <!-- <a href="javascript:ReverseDisplay('uniquename')"> -->
-									<!-- order -->
-	 							<!-- </a> -->
-	 							<!-- <div id="uniquename" style="display:none;"> -->
-									<!-- <p> -->
-									Enter qty: <input type="number" id="{{specs.specs_name}}" name="specs" style="width:30px;">
-									<!-- </p>  -->
-								<!-- </div> -->
+								
+									<input type="radio" name="specs" value="{{specs.specs_name}}"> &nbsp;&nbsp;&nbsp;{{specs.specs_name}}&nbsp;&nbsp;
+									Enter qty: <input type="number" id="{{specs.specs_name}}" name="qty" style="width:30px;">
+			
 								<br><br>
 
-								<!-- <input type="number" id="inputQty" name="qty_order" style="width:30px;"> -->
 								
 								
 							{% endif %}
@@ -118,120 +106,12 @@
 		{% endfor %} 
 
 		</div> <br>
-<!--
-		<label class="collapse" for="_1"><font size="3"><a>1. User</a></font></label>
-		<input id="_1" type="checkbox" name="BTLtype">
-		<div>
-			{% for item in all_item %}
-				{% if item.item_BTL.id == 1 %}
-				
-				
 
-				<label class="collapse" for="{{item.id}}"><font size="2">
-					&nbsp;&nbsp;<input type="radio" name="item" value="{{item.item_name}}">&nbsp;{{item.item_name}} 
-				</font></label>
-
-				<input id="{{item.id}}" type="checkbox">
-
-				<div>
-
-					{% for specs in all_specs %}
-
-						{% if specs.specs_item.id == item.id %}
-							
-							&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="specs" value="{{specs.specs_name}}">&nbsp;{{specs.specs_name}} &nbsp;
-						{% endif %}
-					{% endfor %}
-					<br><br>
-				</div>
-
-
-
-				{% endif %}
-			{% endfor %}
-			<br><br>
-			
-			
-		</div>
-  
-		 <label class="collapse" for="_2"><font size="3"><a>2. Merchant</a></font></label>
-		 <input id="_2" type="checkbox" name="BTLtype">
 		
-		 <div>
-			{% for item in all_item %}
-				{% if item.item_BTL.id == 2 %}
-				
-				
-
-				<label class="collapse" for="{{item.id}}"><font size="2">
-					&nbsp;&nbsp;<input type="radio" name="item" value="{{item.item_name}}">&nbsp;{{item.item_name}} 
-				</font></label>
-
-				<input id="{{item.id}}" type="checkbox">
-
-				<div>
-
-					{% for specs in all_specs %}
-
-						{% if specs.specs_item.id == item.id %}
-							
-							&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="specs" value="{{specs.specs_name}}">&nbsp;{{specs.specs_name}} &nbsp;
-						{% endif %}
-					{% endfor %}
-					<br><br>
-				</div>
-
-
-			{% endif %}
-			{% endfor %}
-			<br><br>
-			
-			
-		</div>
-
-		 <label class="collapse" for="_3"><font size="3"><a>3. Zoman</a></font></label>
-		 <input id="_3" type="checkbox" name="BTLtype">
-	
-
-		 <div>
-			{% for item in all_item %}
-				{% if item.item_BTL.id == 3 %}
-				
-				
-
-				<label class="collapse" for="{{item.id}}"><font size="2">
-					&nbsp;&nbsp;<input type="radio" name="item" value="{{item.item_name}}">&nbsp;{{item.item_name}} 
-				</font></label>
-
-				<input id="{{item.id}}" type="checkbox">
-
-				<div>
-
-					{% for specs in all_specs %}
-
-						{% if specs.specs_item.id == item.id %}
-							
-							&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="specs" value="{{specs.specs_name}}">&nbsp;{{specs.specs_name}} &nbsp;
-						{% endif %}
-					{% endfor %}
-					<br><br>
-				</div>
-
-
-			{% endif %}
-			{% endfor %}
-			<br><br>
-			
-			
-		</div>
-
-		<br>
--->
-		
-		Quantity of packages
+		<!-- Quantity of packages
 		<label for="inputQty" class="sr-only">Reqd Quantity</label><br>
 		<input type="number" id="inputQty" name="qty" class="form-control" placeholder="Enter the required quantity" required><br>
-
+ -->
 
 			<br><br>
 

@@ -35,9 +35,9 @@ def post_new(request):
 	instruct_post = request.REQUEST['instruct']
 	city_post = request.REQUEST['city']
 	lang_post = request.REQUEST['lang']
-	BTLtype_post = request.REQUEST['BTLtype']
-	item_post = request.REQUEST['item']
-	# specs_post = request.REQUEST['specs']
+	# BTLtype_post = request.REQUEST['BTLtype']
+	# item_post = request.REQUEST['item']
+	specs_post = request.REQUEST['specs']
 	rtype_post = request.REQUEST['rtype']
 	qty_post = request.REQUEST['qty']
 	email_post = request.REQUEST['email']
@@ -47,9 +47,9 @@ def post_new(request):
 	entry = Post(instruct_post = instruct_post,
 		city_post = city_post,
 		lang_post = lang_post,
-		BTLtype_post = BTLtype_post,
-		item_post = item_post,
-		# specs_post = specs_post,
+		# BTLtype_post = BTLtype_post,
+		# item_post = item_post,
+		specs_post = specs_post,
 		rtype_post = rtype_post,
 		qty_post = qty_post,
 		email_post = email_post,
